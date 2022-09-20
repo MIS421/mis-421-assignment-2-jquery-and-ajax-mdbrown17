@@ -29,12 +29,12 @@
   - [X] A second empty div with an ID of 'time'.
 - CSS:
   - [X] Set the background of the page to an image of your choice. ([Unsplash](unsplash.com) is a great resource for free images)
-  - [ ] Set the visibility of the 'searchResults' and 'time' divs to hidden.
+  - [X] Set the visibility of the 'searchResults' and 'time' divs to hidden.
   - [ ] Style the rest of the page however you see fit. points will be lost if little or no effort is given in styling your site.
 - JS:
-  - [ ] Replace 'my-api-url' under the ajax call with the url from your search API.
-  - [ ] Replace 'my-api-key' next to 'Ocp-Apim-Subscription-Key' with the api key from your search API.
-  - [ ] Write a function that calls the 'apiSearch' function on a click of your search button.
+  - [X] Replace 'my-api-url' under the ajax call with the url from your search API.
+  - [X] Replace 'my-api-key' next to 'Ocp-Apim-Subscription-Key' with the api key from your search API.
+  - [X] Write a function that calls the 'apiSearch' function on a click of your search button.
   - [ ] Write a function that changes the background image of your site on a click of your search engine name.
   - [X] Write a function that gets the current time (formatted HH:MM), loads the result into your 'time' div, and displays the div as a JQuery UI dialog window on a click of your time button.
 - BONUS:

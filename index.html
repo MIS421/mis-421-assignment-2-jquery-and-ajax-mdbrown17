@@ -23,55 +23,42 @@
     <!-- ACTION ITEM #2 (Title)-->
     <title>Cloud Cover</title>
 
-    <!-- ACTION ITEM #1 (Header//Dynamic) -->
-    <div class="sample-header">
-        <div class="sample-header-section">
-            <h1>Cloud Cover</h1>
-            <h2>A search engine for everyone.</h2>
-        </div>
-    </div>
-    <div class="sample-section-wrap">
-        <div class="sample-section">
+    
 </head>
 
 <body>
+    <div id="entire">
+        <!-- ACTION ITEM #1 -->
+        <h1>Cloud Cover</h1>
 
-    <form>
-        <!-- <lable for="query">What are you searching for? </lable> -->
-        <!-- ACTION ITEM #3 -->
-        <input type="text" id="query" name="query">
+        <form action="" class="search">
+            <!-- ACTION ITEM #3 -->
+            <input type="text" id="query" name="q" />
+        </form>
         <!-- ACTION ITEM #4 -->
-        <input type="submit" value="Search">
-    </form>
-    <br /> <br />
+        <div class="buttons">
+            <button id="searchBtn" onclick="iSearch()">Search</button>
+        </div>
 
-    <!-- ACTION ITEM #5 -->
-    <button type="button" id="timeBtn" onclick="displayTime()">Display Current Time</button>
+        <!-- ACTION ITEM #5 -->
+        <div class="buttons">
+            <button type="button" id="timeBtn" onclick="displayTime()">Display Current Time</button>
+        </div>
 
-    <!-- ACTION ITEM #7 -->
-    <div id="time" title="Current Time">
+        <!-- ACTION ITEM #7 -->
+        <div id="time">
+
+        </div>
+
+        <!-- ACTION ITEM #6 -->
+        <div id="searchResults">
+
+        </div>
+        <h2>A search engine for everyone.</h2>
+
 
     </div>
-
-    <!-- ACTION ITEM #6 -->
-    <div id="searchResults" title="Search Results">
-
-    </div>
-
-    <!-- J QUERY Modal-->
-    <script>
-        $(function () {
-            $("#time").dialog({
-                autoOpen: false,
-            });
-            $("#timeBtn").click(function () {
-                $("#time").dialog("open");
-            });
-        });
-    </script>
-
-
-
+ 
     <script type="text/javascript" src="./script.js"></script>
 
 </body>

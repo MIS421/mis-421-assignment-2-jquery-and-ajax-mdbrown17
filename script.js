@@ -2,6 +2,7 @@ var len;
 var results = '';
 
 function apiSearch() {
+    console.log("made it here");
   var params = {
     "q": $("#query").val(),
     "count": "50",
@@ -10,9 +11,9 @@ function apiSearch() {
   };
 
   $.ajax({
-      url: 'my-api-url' + $.param(params),
+      url: 'https://api.bing.microsoft.com/v7.0/search?' + $.param(params),
       beforeSend: function (xhrObj) {
-        xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "my-api-key");
+          xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "cbf2489f528140ab98cc639bc67545fa");
       },
       type: "GET",
     })
@@ -20,55 +21,82 @@ function apiSearch() {
       len = data.webPages.value.length;
       for (i = 0; i < len; i++) {
         results += "<p><a href='" + data.webPages.value[i].url + "'>" + data.webPages.value[i].name + "</a>: " + data.webPages.value[i].snippet + "</p>";
-      }
+        }
 
-      $('#searchResults').html(results);
-      $('#searchResults').dialog();
+        // document.getElementById('searchResults').innerHTML = results;
+
+       $('#searchResults').html(results);
+
+        console.log(results);
+
     })
     .fail(function () {
       alert("error");
     });
 }
 
-function parallax_height() {
-    var scroll_top = $(this).scrollTop();
-    var sample_section_top = $(".sample-section").offset().top;
-    var header_height = $(".sample-header-section").outerHeight();
-    $(".sample-section").css({ "margin-top": header_height });
-    $(".sample-header").css({ height: header_height - scroll_top });
-}
-parallax_height();
-$(window).scroll(function () {
-    parallax_height();
-});
-$(window).resize(function () {
-    parallax_height();
-});
-
 // ACTION ITEM #5
 function displayTime() {
 
-    var html = "";
+    function getTime() {
+        var html = "";
 
-    var dt = new Date();
+        var dt = new Date();
 
-    var hour = dt.getHours();
-    var minute = dt.getMinutes();
+        var hour = dt.getHours();
+        var minute = dt.getMinutes();
 
-    var pod = "AM";
+        var pod = "AM";
 
-    if (hour > 12) {
-        hour -= 12;
-        pod = "PM";
+        if (hour > 12) {
+            hour -= 12;
+            pod = "PM";
+        }
+
+        if (minute < 10) {
+            minute = "0" + minute;
+        }
+
+        html += hour + ':' + minute + " " + pod;
+
+        document.getElementById('time').title = "Current Time";
+
+        document.getElementById('time').innerHTML = html;
     }
 
-    if (minute < 10) {
-        minute = "0" + minute;
-    }
+    getTime();
 
-    html += hour + ':' + minute + " " + pod;
-
-    document.getElementById('time').innerHTML = html;
-
+        $("#time").dialog({
+            width: 300,
+            height: 150,
+            show: {
+                effect: "slide",
+                duration: 0
+            },
+            hide: {
+                effect: "slide",
+                duration: 750
+            }
+        });
 }
 
+
+// ACTION ITEM #13
+function iSearch() {
+    apiSearch();
+    function pullResults() {
+        $('#searchResults').dialog({
+            width: 500,
+            height: 500,
+            show: {
+                effect: "slide",
+                duration: 1000
+            },
+            hide: {
+                effect: "slide",
+                duration: 750
+            }
+        });
+    }
+    pullResults();
+}
