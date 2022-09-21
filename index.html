@@ -26,15 +26,16 @@
     
 </head>
 
-<body>
-    <div id="entire">
+<body id="entire">
+    <div>
         <!-- ACTION ITEM #1 -->
-        <h1>Cloud Cover</h1>
+        <h1 id="title">Cloud Cover</h1>
 
         <form action="" class="search">
-            <!-- ACTION ITEM #3 -->
+         <!-- ACTION ITEM #3 -->
             <input type="text" id="query" name="q" />
         </form>
+
         <!-- ACTION ITEM #4 -->
         <div class="buttons">
             <button id="searchBtn" onclick="iSearch()">Search</button>
@@ -43,6 +44,7 @@
         <!-- ACTION ITEM #5 -->
         <div class="buttons">
             <button type="button" id="timeBtn" onclick="displayTime()">Display Current Time</button>
+            <button type="button" id="luckyBtn" onclick="feelingLucky()">I'm feeling lucky</button>
         </div>
 
         <!-- ACTION ITEM #7 -->
@@ -54,9 +56,30 @@
         <div id="searchResults">
 
         </div>
+
         <h2>A search engine for everyone.</h2>
 
+        <script>
+            var myCount = 1;
+            document.getElementById("title").onclick = function () { replace() };
 
+            function replace() {
+                myCount++;
+
+                    var myBackground = document.getElementById("entire").background;
+
+                    //if (myBackground == "url('Images/Clouds.jpg')") {
+
+                    if ((myCount % 2) == 0) {
+                        document.body.style.background = "url('Images/pic2.jpg')";
+                        console.log("MADE IT");
+                    }
+
+                    else document.body.style.background = "url('Images/Clouds.jpg')";
+                }
+        </script>
+        
+        }
     </div>
  
     <script type="text/javascript" src="./script.js"></script>
